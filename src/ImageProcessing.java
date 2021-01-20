@@ -29,6 +29,7 @@ public class ImageProcessing extends PApplet {
             } else {
                 s = new GrowUp(this, (int) random(width), (int) random(height), 276, 283, i);
             }
+            s.setup();
             sprites[i] = s;
         }
     }

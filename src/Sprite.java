@@ -1,7 +1,7 @@
 import processing.core.PImage;
 import processing.core.PApplet;
 
-public class Sprite extends ImageProcessing{
+public class Sprite {
 
     private PImage img;
     private PImage superImage;
