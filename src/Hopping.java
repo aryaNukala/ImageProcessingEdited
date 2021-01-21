@@ -21,6 +21,7 @@
         super.draw();
         getPApplet().textSize(18);
         getPApplet().textAlign(getPApplet().CENTER, getPApplet().CENTER);
+        getPApplet().fill(255);
         getPApplet().text("food?", getX(), getY());
         getPApplet().tint(255, 255);
     }

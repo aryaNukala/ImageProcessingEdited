@@ -13,21 +13,22 @@ public class ImageProcessing extends PApplet {
     public void setup() {
 
         // make a new Sprite object and add it to the spirtes array
-        sprites = new Sprite[15]; // allocating they array with one space available for a Sprite
-
+        sprites = new Sprite[18]; // allocating they array with one space available for a Sprite
 
         for (int i = 0; i < sprites.length; i++) {
             Sprite s;
-            if (i % 5 == 0) {
+            if (i % 6 == 0) {
                 s = new Contrasting(this, (int) random(width), (int) random(height), 276, 283, i);
-            } else if (i % 5 == 1) {
+            } else if (i % 6 == 1) {
                 s = new Rotating(this, (int) random(width), (int) random(height), 276, 283, i);
-            } else if (i % 5 == 2) {
+            } else if (i % 6 == 2) {
                 s = new Hopping(this, (int) random(width), (int) random(height), 276, 283, i);
-            } else if (i % 5 == 3) {
+            } else if (i % 6 == 3) {
                 s = new Superhero(this, (int) random(width), (int) random(height), 276, 283, i);
-            } else {
+            } else if (i % 6 == 4){
                 s = new GrowUp(this, (int) random(width), (int) random(height), 276, 283, i);
+            } else {
+                s = new QuizClass(this, (int) random(width), (int) random(height), 276, 283, i);
             }
             s.setup();
             sprites[i] = s;

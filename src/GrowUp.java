@@ -26,12 +26,13 @@ public class GrowUp extends Sprite {
             super.draw();
             getPApplet().textSize(18);
             getPApplet().textAlign(getPApplet().CENTER, getPApplet().CENTER);
+            getPApplet().fill(255);
             getPApplet().text("grow me!", getX(), getY());
             getPApplet().tint(255, 255);
         } else if(young == false){
             PImage grownUp = getPApplet().loadImage("data/grownup.png");
             getPApplet().tint(230, 230, 250);
-            getPApplet().image(grownUp, h, w);
+            getPApplet().image(grownUp, h - 400, w - 100);
         }
     }
 
