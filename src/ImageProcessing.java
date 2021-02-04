@@ -1,9 +1,12 @@
 import processing.core.PApplet;
-import processing.core.PImage;
+import java.util.*;
 
 public class ImageProcessing extends PApplet {
 
-    Sprite[] sprites;
+    java.util.ArrayList<Sprite> sprites;
+    private int i;
+    private Sprite s;
+    private int spritess;
 
     public static void main(String[] args) {
 
@@ -12,27 +15,24 @@ public class ImageProcessing extends PApplet {
 
     public void setup() {
 
-        // make a new Sprite object and add it to the spirtes array
-        sprites = new Sprite[18]; // allocating they array with one space available for a Sprite
-
-        for (int i = 0; i < sprites.length; i++) {
-            Sprite s;
-            if (i % 6 == 0) {
-                s = new Contrasting(this, (int) random(width), (int) random(height), 276, 283, i);
-            } else if (i % 6 == 1) {
-                s = new Rotating(this, (int) random(width), (int) random(height), 276, 283, i);
-            } else if (i % 6 == 2) {
-                s = new Hopping(this, (int) random(width), (int) random(height), 276, 283, i);
-            } else if (i % 6 == 3) {
-                s = new Superhero(this, (int) random(width), (int) random(height), 276, 283, i);
-            } else if (i % 6 == 4){
-                s = new GrowUp(this, (int) random(width), (int) random(height), 276, 283, i);
-            } else {
-                s = new QuizClass(this, (int) random(width), (int) random(height), 276, 283, i);
-            }
-            s.setup();
-            sprites[i] = s;
+        // make a new Sprite object and add it to the sprites array
+        spritess = 15;
+        sprites = new ArrayList<Sprite>(); // allocating they array with one space available for a Sprite
+        i = 0;
+        for (i = 0; i < spritess; i++)
+        if(spritess % 5 == 0){
+            s = new Contrasting(this, (int) random(width), (int) random(height), 276, 283, i);
+        } else if(spritess % 5 == 1){
+            s = new Rotating(this, (int) random(width), (int) random(height), 276, 283,i);
+        } else if(spritess % 5 == 2){
+            s = new Hopping(this, (int) random(width), (int) random(height), 276, 283, i);
+        } else if(spritess % 5 == 3){
+            s = new Superhero(this, (int) random(width), (int) random(height), 276, 283, i);
+        } else if(spritess % 5 == 4){
+            s = new GrowUp(this, (int) random(width), (int) random(height), 276, 283, i);
         }
+        sprites.add(s);
+        s.setup();
     }
 
         public void settings(){
@@ -43,16 +43,40 @@ public class ImageProcessing extends PApplet {
         public void draw () {
             // substitute for background call
             fancyBackground();
-            for (int i = 0; i < sprites.length; i++) {
-                Sprite s = sprites[i];
+            for (int i = 0; i < sprites.size(); i++) {
+                Sprite s = sprites.get(i);
                 s.draw();
             }
         }
 
         public void mouseClicked(){
-            for (int i = 0; i < sprites.length; i++) {
-                Sprite s = sprites[i];
+            for (int i = 0; i < sprites.size(); i++) {
+                Sprite s = sprites.get(i);
                 s.mouseClicked(mouseX, mouseY);
+            }
+        }
+
+        public void keyPressed(){
+            if((Character.toString(key)).equals("a")){
+                spritess ++;
+                if(spritess % 5 == 0){
+                    s = new Contrasting(this, (int) random(width), (int) random(height), 276, 283, i);
+                } else if(spritess % 5 == 1){
+                    s = new Rotating(this, (int) random(width), (int) random(height), 276, 283,i);
+                } else if(spritess % 5 == 2){
+                    s = new Hopping(this, (int) random(width), (int) random(height), 276, 283, i);
+                } else if(spritess % 5 == 3){
+                    s = new Superhero(this, (int) random(width), (int) random(height), 276, 283, i);
+                } else if(spritess % 5 == 4){
+                    s = new GrowUp(this, (int) random(width), (int) random(height), 276, 283, i);
+                }
+                sprites.add(s);
+                s.setup();
+            }
+
+            if((Character.toString(key)).equals("s")){
+                sprites.remove(sprites.get(sprites.size()-1));
+                spritess--;
             }
         }
 

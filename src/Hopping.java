@@ -1,5 +1,4 @@
  //import processing.sound.*;
- import processing.core.PImage;
  import processing.core.PApplet;
 
  public class Hopping extends Sprite {
@@ -16,7 +15,6 @@
     }
 
     public void draw(){
-        PImage img = getImage();
         getPApplet().tint(0, 100, 150, 150);
         super.draw();
         getPApplet().textSize(18);

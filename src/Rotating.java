@@ -1,4 +1,3 @@
-import processing.core.PImage;
 import processing.core.PApplet;
 
 public class Rotating extends Sprite {
@@ -9,7 +8,6 @@ public class Rotating extends Sprite {
     }
 
     public void draw(){
-        PImage img = getImage();
         getPApplet().imageMode(getPApplet().CENTER);
         int x = getX();
         int y = getY();

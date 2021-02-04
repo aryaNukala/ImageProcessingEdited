@@ -17,7 +17,7 @@ public class Contrasting extends Sprite {
                 if (getPApplet().brightness(img.pixels[loc]) > 110){
                     img.pixels[loc] = getPApplet().color(255); // if very bright, then make it white
                 } else {
-                    img.pixels[loc] = getPApplet().color(0, 0); // if not very bright, make completlely transparent
+                    img.pixels[loc] = getPApplet().color(0, 0); // if not very bright, make completely transparent
                 }
             }
         }  img.updatePixels();
